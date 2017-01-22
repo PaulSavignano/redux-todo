@@ -3,35 +3,18 @@ import ReactDOM from 'react-dom';
 import App from './components/App';
 import './index.css';
 
-import { fetchLocation, changeName, addHobby, addMovie, removeHobby, removeMovie } from './actions/index'
+import { setSearchText, addTodo, toggleShowCompleted, toggleTodo } from './actions/index'
 import configureStore from './store/configureStore'
 
 const store = configureStore()
 
-
-const unsubscribe = store.subscribe(() => {
-  const state = store.getState();
-  console.log('New State', state)
-  if (state.map.isFetching) {
-  } else if (state.map.url) {
-    console.log(state.map.url)
-  }
+store.subscribe(() => {
+  console.log('New state', store.getState())
 })
 
-const currentState = store.getState();
-
-console.log('currentState', currentState)
-
-
-store.dispatch(fetchLocation())
-store.dispatch(changeName('Paul'))
-store.dispatch(addHobby('Running'))
-store.dispatch(addHobby('Walking'))
-store.dispatch(addMovie('La La Land', 'Musical'))
-store.dispatch(addMovie('Accountant', 'Action'))
-store.dispatch(removeHobby(1))
-store.dispatch(removeMovie(1))
-
+store.dispatch(addTodo('Clean the yard'))
+store.dispatch(setSearchText('yard'))
+store.dispatch(toggleShowCompleted())
 
 ReactDOM.render(
   <App />,

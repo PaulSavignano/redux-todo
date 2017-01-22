@@ -5,7 +5,7 @@ export const setSearchText = (searchText) => {
   }
 }
 
-export const addToDo = (text) => {
+export const addTodo = (text) => {
   return {
     type: 'ADD_TODO',
     text

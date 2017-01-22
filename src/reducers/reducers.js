@@ -1,6 +1,6 @@
 import uuid from 'uuid'
 
-export const searchTextReducer = (state = '', action) => {
+export const searchText = (state = '', action) => {
   switch (action.type) {
     case 'SET_SEARCH_TEXT':
       return action.searchText
@@ -9,7 +9,7 @@ export const searchTextReducer = (state = '', action) => {
   }
 }
 
-export const showCompletedReducer = (state = false, action) => {
+export const showCompleted = (state = false, action) => {
   switch (action.type) {
     case 'TOGGLE_SHOW_COMPLETED':
       return !state
@@ -18,7 +18,7 @@ export const showCompletedReducer = (state = false, action) => {
   }
 }
 
-export const todosReducer = (state = [], action) => {
+export const todos = (state = [], action) => {
   switch (action.type) {
     case 'ADD_TODO':
       return [
@@ -42,17 +42,6 @@ export const todosReducer = (state = [], action) => {
           }
         }
       })
-    default:
-      return state
-  }
-}
-
-export const toggleTodo = () => {
-  switch (action.type) {
-    case 'TOGGLE_TODO':
-      return {
-
-      }
     default:
       return state
   }

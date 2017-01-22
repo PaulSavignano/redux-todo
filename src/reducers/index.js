@@ -1,8 +1,14 @@
 import { combineReducers } from 'redux'
-import { searchTextReducer } from './reducers'
+import {
+  searchText,
+  showCompleted,
+  todos
+} from './reducers'
 
 const rootReducer = combineReducers({
-  searchText: searchTextReducer
+  searchText,
+  showCompleted,
+  todos
 })
 
 export default rootReducer

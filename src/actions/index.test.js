@@ -14,7 +14,7 @@ describe('Actions', () => {
       type: 'ADD_TODO',
       text: 'Thing to do'
     }
-    const response = actions.addToDo(action.text)
+    const response = actions.addTodo(action.text)
     expect(response).toEqual(action)
   })
   it('should generate toggle show completed action', () => {
