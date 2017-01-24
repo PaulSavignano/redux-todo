@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App';
+import { Provider } from 'react-redux'
+import App from './containers/App';
 import './index.css';
 
 import { setSearchText, addTodo, toggleShowCompleted, toggleTodo } from './actions/index'
@@ -12,11 +13,10 @@ store.subscribe(() => {
   console.log('New state', store.getState())
 })
 
-store.dispatch(addTodo('Clean the yard'))
-store.dispatch(setSearchText('yard'))
-store.dispatch(toggleShowCompleted())
 
 ReactDOM.render(
-  <App />,
+  <Provider store={ store }>
+    <App />
+  </Provider>,
   document.getElementById('root')
 );
